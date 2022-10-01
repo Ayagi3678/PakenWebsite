@@ -48,6 +48,7 @@ header a:hover{
     background-image: url(Images/Paken_HP.png);
     background-size: cover;
     text-align: center;
+    background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
     height:120vh;
