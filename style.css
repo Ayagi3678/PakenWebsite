@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family:system-ui;
+}
+body{
+    overflow-x: hidden;
+    background-color: #75a6bb;
+}
+header{
+    padding: 0 8vw;
+    height: 80px;
+    line-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    /*position: fixed;*/
+    z-index: 999;
+    width: 100vw;
+    background-color: #ffffff00;
+    /*box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);*/
+}
+header ul{
+    padding-left: 6vw;
+    display: flex;
+   /* justify-content: space-between;*/
+    width: 600px;
+}
+header .Logo{
+    font-family:'Courier New', Courier, monospace;
+    padding-left: 3.5vw;
+    position:relative;
+    text-align: left;
+    width: 30vw;
+    top:17%;/*縦位置の指定*/
+    padding-top: 2px;
+    font-size: 30px;
+    font-weight: bold;
+    /*color: #70fff5;*/
+    color: #4b5d77;
+    background: url("Images/PakenLogo.png")no-repeat 0px center / 60px auto;
+}
+#header.HeightMin .Logo{
+    padding-left: 0;
+    text-align: right;
+    width: 14.5vw;
+    top:0;/*縦位置の指定*/
+    font-size: 24px;
+    color: #5D8494;
+    background: url("Images/PakenLogo2.png")no-repeat 0px center / 50px auto;
+}
+header .border {
+    position:relative;
+    top:22%;/*縦位置の指定*/
+    background:#4b5d77;
+    width:1px;/*線の幅指定*/
+    height:70%;/*線の高さ指定*/
+}
+#header.HeightMin .border{
+    background:#5D8494;
+    top:17%;/*縦位置の指定*/
+}
+ 
+/*HeightMinというクラス名がついたら高さを小さく、上部固定に*/
+#header.HeightMin{
+    margin-top: 10vh;
+	position: fixed;
+    z-index: 999;/*最前面へ*/
+    background-color: #96deda;
+	animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime{
+  from {
+  	opacity: 0;
+	transform: translateY(-170px);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+}
+.FirstView{
+    background-image: url(Images/Paken_HP.png);
+    background-size: cover;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height:125vh;
+    margin-top: -10vh;
+    /*border-bottom:20px solid #EFEFEF;*/
+}
+.Notice{
+    padding: 5% 4% 0 4%;
+}
+.Notice h2{
+    margin-top: 30px;
+    font-size: 50px;
+    padding-left: 5vw;
+    color: #4b5d77;
+    border-bottom: 3px solid #4b5d77;
+}
+.noticeBox{
+    margin: 60px;
+    background: #EFEFEF;
+    padding: 60px 100px 25px 100px;
+    color:#547988 ;
+}
+dt{
+    font-size: 18px;
+    float: right;
+    padding: 10px;
+    padding-right: 30px;
+    color: #b6b6b6;
+}
+dd{
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 30px;
+    border-bottom: 2px solid #b6b6b6;
+}
+.noticeBox a{
+    margin-right: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    color: #008EC8;
+    text-decoration: underline;
+}
+.About{
+    padding: 4% 4% 1% 4%;
+}
+.About h2{
+    margin-top: 30px;
+    font-size: 50px;
+    padding-left: 5vw;
+    color: #4b5d77;
+    border-bottom: 3px solid #4b5d77;
+}
+.About p{
+    padding: 100px 70px 70px 190px;
+    font-size: 23px;
+    line-height: 180%;
+    font-weight: 500;
+    color: #4b5d77;
+}
+.btn{
+    /*アニメーションの起点とするためrelativeを指定*/
+    position: relative;
+	overflow: hidden;
+    /*ボタンの形状*/
+	text-decoration: none;
+	font-size: 20px;
+    font-weight: bold; 
+    display: block;
+    padding: 0 25px 0 25px;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/   
+    transition: ease-in .2s;
+    margin-top: 1vh;
+}
+header .btn{
+    transition: 0s;
+    color: #4b5d77;
+}
+#header.HeightMin .btn{
+    margin-top: 0;
+    color: #5D8494;
+}
+
+/*ボタン内spanの形状*/
+.btn span {
+	position: relative;
+	z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
+    transition-duration:.1s;
+}
+
+/*== 背景が流れる（左から右） */
+.bgleft:before {
+ 	content: '';
+    /*絶対配置で位置を指定*/
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 2;
+    /*色や形状*/
+ 	background: #4b5d77;
+ 	width: 100%;
+	height: 100%;
+    /*アニメーション*/
+ 	transition: transform .3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+ 	transform: scale(0, .03);
+	transform-origin: right bottom;
+}
+#header.HeightMin .bgleft:before{
+    background: #6b95a7;
+}
+
+/*hoverした際の形状*/
+.bgleft:hover:before{
+	transform-origin:left bottom;
+	transform:scale(1, .03);
+}
